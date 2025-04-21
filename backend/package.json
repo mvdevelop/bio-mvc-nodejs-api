@@ -1,19 +1,24 @@
 {
-  "name": "api_test",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js localhost 3000"
+    "start": "nodemon ./bin/server.js localhost 3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
-    "express": "^4.21.2",
-    "mongodb": "^6.14.2",
-    "mongoose": "^8.12.1",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "debug": "^4.4.0",
+    "express": "^5.1.0",
+    "http": "^0.0.1-security",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.13.2",
     "nodemon": "^3.1.9"
   }
 }
