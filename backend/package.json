@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./bin/server.js localhost 3000"
+    "test": "mocha --recursive tests/**/*.test.js",
+    "test:unit": "mocha --recursive tests/unit",
+    "test:integration": "mocha --recursive tests/integration",
+    "test:watch": "npm test -- --watch",
+    "start": "nodemon ./bin/server.js localhost 3000",
+    "dev": "nodemon ./bin/server.js localhost 3000"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +23,7 @@
     "http": "^0.0.1-security",
     "mongodb": "^6.15.0",
     "mongoose": "^8.13.2",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "supertest": "^7.2.2"
   }
 }
