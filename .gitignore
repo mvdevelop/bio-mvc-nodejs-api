@@ -1,0 +1,9 @@
+# Node.js
+*.js
+*.css
+node_modules
+/dist
+
+# TailwindCSS
+tailwind.config.js
+postcss.config.js
