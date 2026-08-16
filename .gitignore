@@ -9,6 +9,7 @@ build/
 # Ambiente e arquivos sensíveis
 .env
 .env.*
+!.env.example
 *.local
 
 # Logs
