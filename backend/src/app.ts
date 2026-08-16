@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -5,14 +6,18 @@ import mongoose from 'mongoose';
 import indexRoute from './routes/index-route';
 import productRoute from './routes/product-route';
 
+dotenv.config();
+
 const app = express();
 
-// Conectando ao mongodb
-const mongoURL = process.env.MONGODB_URI || 'mongodb+srv://marcosvmdilly:6tASWUR7sD6KNnDN@cluster0.ldz1kzb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-
-mongoose.connect(mongoURL)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Error!', err));
+// Conectando ao MongoDB — a URI deve vir do ambiente (ver .env.example).
+// Se não houver MONGODB_URI, a conexão é pulada (útil para testes com MongoMemoryServer).
+if (process.env.MONGODB_URI) {
+    mongoose
+        .connect(process.env.MONGODB_URI)
+        .then(() => console.log('Connected to MongoDB'))
+        .catch(err => console.error('Error connecting to MongoDB:', err.message));
+}
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

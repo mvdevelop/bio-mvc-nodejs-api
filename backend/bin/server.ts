@@ -1,8 +1,10 @@
-import express from 'express';
-import debug from 'debug';
-import http from 'http';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const app = express();
+import app from '../src/app';
+import debug from 'debug';
+import http from 'node:http';
+
 const mvdevlop = debug('mvdevlop:server');
 
 const port = normalizePort(process.env.PORT || '3000');
