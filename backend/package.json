@@ -2,14 +2,15 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/bin/server.js",
   "scripts": {
     "test": "mocha --recursive tests/**/*.test.js",
     "test:unit": "mocha --recursive tests/unit",
     "test:integration": "mocha --recursive tests/integration",
     "test:watch": "npm test -- --watch",
-    "start": "nodemon ./bin/server.js localhost 3000",
-    "dev": "nodemon ./bin/server.js localhost 3000"
+    "build": "tsc",
+    "start": "node dist/bin/server.js",
+    "dev": "tsx watch bin/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -27,9 +28,11 @@
     "supertest": "^7.2.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/debug": "^4.1.13",
     "@types/express": "^5.0.6",
-    "@types/mongoose": "^5.11.96",
     "@types/node": "^26.2.0",
+    "tsx": "^4.23.12",
     "typescript": "^7.0.2"
   }
 }

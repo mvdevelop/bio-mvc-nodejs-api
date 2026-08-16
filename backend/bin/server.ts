@@ -1,7 +1,6 @@
 import express from 'express';
 import debug from 'debug';
 import http from 'http';
-import mongoose from 'mongoose';
 
 const app = express();
 const mvdevlop = debug('mvdevlop:server');
@@ -54,6 +53,6 @@ function onError(error: NodeJS.ErrnoException): void {
 
 function onListening(): void {
     const addr = server.address();
-    const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+    const bind = typeof addr === 'string' ? `pipe ${addr}` : addr ? `port ${addr.port}` : 'unknown';
     mvdevlop(`Listening on ${bind}`);
 }

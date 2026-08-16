@@ -1,4 +1,4 @@
-import Product from '../models/product';
+import Product, { IProduct } from '../models/product';
 
 export const get = async () => {
     const res = await Product.find({
@@ -25,12 +25,12 @@ export const getByTag = (tag: string) => {
     }, 'title description price slug tags');
 }
 
-export const create = (data: any) => {
+export const create = (data: Partial<IProduct>) => {
     const product = new Product(data);
     return product.save();
 }
 
-export const update = (id: string, data: any) => {
+export const update = (id: string, data: Pick<IProduct, 'title' | 'description' | 'price' | 'slug'>) => {
     return Product.findByIdAndUpdate(id, {
         $set: {
             title: data.title,
@@ -42,5 +42,5 @@ export const update = (id: string, data: any) => {
 }
 
 export const deleteProduct = (id: string) => {
-    return Product.findOneAndDelete(id);
+    return Product.findByIdAndDelete(id);
 }
