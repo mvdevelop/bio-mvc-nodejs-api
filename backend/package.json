@@ -4,10 +4,10 @@
   "description": "",
   "main": "dist/bin/server.js",
   "scripts": {
-    "test": "mocha --recursive tests/**/*.test.js",
-    "test:unit": "mocha --recursive tests/unit",
-    "test:integration": "mocha --recursive tests/integration",
-    "test:watch": "npm test -- --watch",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:watch": "vitest",
     "build": "tsc",
     "start": "node dist/bin/server.js",
     "dev": "tsx watch bin/server.ts"
@@ -32,7 +32,10 @@
     "@types/debug": "^4.1.13",
     "@types/express": "^5.0.6",
     "@types/node": "^26.2.0",
+    "@types/supertest": "^7.2.1",
+    "mongodb-memory-server": "^11.2.0",
     "tsx": "^4.23.12",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   }
 }

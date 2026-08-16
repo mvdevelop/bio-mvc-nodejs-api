@@ -84,7 +84,7 @@ export const put = (req: Request, res: Response) => {
 
 export const deleteProduct = (req: Request, res: Response) => {
     repository
-        .deleteProduct(req.body.id)
+        .deleteProduct(String(req.params.id))
         .then(() => {
             res.status(200).send({
                 message: 'Product deleted successfully!'
